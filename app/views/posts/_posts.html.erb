@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% posts.each do |post| %>
   <%= content_tag :div, id: dom_id(post), class: ["card", "card-body", "mb-2", dom_class(post)] do %>
     <div>
       <%= post.id %>
@@ -6,3 +6,13 @@
     </div>
   <% end %>
 <% end %>
+
+<% if pagy.page < pagy.last %>
+  <div class="btn btn-primary"
+      data-controller="infinite-scroll"
+      data-infinite-scroll-next-url="<%= posts_path(page: pagy.page + 1, format: :js) %>">
+      more
+  </div>
+<% end %>
+
+
