@@ -1,24 +1,37 @@
-# README
+# Infinite scroll 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example for using intersection observers to create an infinite scroll in a rails App.
 
-Things you may want to cover:
+This demo leverage [stimulus-use](https://github.com/adrienpoly/stimulus-use) new `appear` behaviour to simplify the js controller
 
-* Ruby version
+### Stimulus controller
+```js
+import { Controller } from "stimulus";
+import { useIntersection } from "stimulus-use";
 
-* System dependencies
+export default class extends Controller {
+  connect() {
+    useIntersection(this, {
+      rootMargin: "100px",
+    });
+  }
 
-* Configuration
+  appear() {
+    this.loadMore(this.nextUrl);
+  }
 
-* Database creation
+  loadMore(url) {
+    Rails.ajax({
+      type: "GET",
+      url: url,
+      success: (_data, _status, xhr) => {
+        this.element.outerHTML = xhr.response;
+      },
+    });
+  }
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  get nextUrl() {
+    return this.data.get("nextUrl");
+  }
+}
+```
