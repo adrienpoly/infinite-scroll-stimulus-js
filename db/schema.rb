@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_04_21_191804) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
     t.string "announcement_type"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_191804) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "provider"
     t.string "uid"
     t.string "access_token"
