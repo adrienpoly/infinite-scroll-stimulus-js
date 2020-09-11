@@ -1,3 +1,10 @@
+<% if pagy.page < pagy.last %>
+  <div data-controller="infinite-scroll"
+      data-infinite-scroll-page="<%= pagy.page %>"
+      data-infinite-scroll-next-url="<%= posts_path(page: pagy.page + 1, format: :js) %>">
+  </div>
+<% end %>
+
 <% posts.each do |post| %>
   <%= content_tag :div, id: dom_id(post), class: ["card", "card-body", "mb-2", dom_class(post)] do %>
     <div>
@@ -5,14 +12,6 @@
       <%= link_to 'Show', post %>
     </div>
   <% end %>
-<% end %>
-
-<% if pagy.page < pagy.last %>
-  <div class="btn btn-primary"
-      data-controller="infinite-scroll"
-      data-infinite-scroll-next-url="<%= posts_path(page: pagy.page + 1, format: :js) %>">
-      more
-  </div>
 <% end %>
 
 

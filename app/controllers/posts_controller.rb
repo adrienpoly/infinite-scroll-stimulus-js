@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @pagy, @posts = pagy Post.all
+    @pagy, @posts = pagy Post.order(id: :desc)
+    @posts = @posts.reverse
 
     respond_to do |format|
       format.html

@@ -6720,10 +6720,10 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-stimulus-use@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.9.0.tgz#21ab2bc697785104caac26ed0a516c241f3131fa"
-  integrity sha512-By1yIr0cjkmcFh68tyF7X+KEfXJDrTA9+AUWUOrc9os1B9mADeGo8a1yQVLa+oLFQyt7eHVoVlRePFqN5EKgzg==
+stimulus-use@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.12.1.tgz#37ef966aaff0b0906e209388e5bf47bb00e25044"
+  integrity sha512-kbZuEFXm9w8o3VgnI9xcIYk89gqrCRJPypfmfCAKH+YEuOUFYY2Ifz8/fv771uXfoTqC2C6cth7lUA9dxpXV6Q==
 
 stimulus@^1.1.1:
   version "1.1.1"

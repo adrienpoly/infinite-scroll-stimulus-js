@@ -1,14 +1,4 @@
-<div class="row">
-  <div class="col-sm-6">
-    <h1>Posts</h1>
-  </div>
-
-  <div class="col-sm-6 text-right">
-  <%= link_to new_post_path, class: 'btn btn-primary' do %>
-    Add New Post
-  <% end %>
-  </div>
+<div class="pt-5">
+  <%= render "posts", posts: @posts, pagy: @pagy %>
 </div>
-
-<%= render "posts", posts: @posts, pagy: @pagy %>
 

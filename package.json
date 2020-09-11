@@ -13,7 +13,7 @@
     "local-time": "^2.1.0",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
-    "stimulus-use": "^0.9.0",
+    "stimulus-use": "^0.12.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
