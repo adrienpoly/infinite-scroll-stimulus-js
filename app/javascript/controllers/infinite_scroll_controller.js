@@ -8,8 +8,7 @@ export default class extends Controller {
       document.body.scrollIntoView(false);
     }
 
-    useIntersection(this, {});
-    requestAnimationFrame(() => {});
+    useIntersection(this);
   }
 
   appear() {
@@ -24,15 +23,14 @@ export default class extends Controller {
         //store current position
         const heightBefore = document.body.scrollHeight;
 
-        //insert content to the top
-        this.element.insertAdjacentHTML("beforebegin", xhr.response);
+        //insert content to the top but bellow the cursor
+        this.element.outerHTML = xhr.response;
 
         // compute the scroll offset
         const heightAfter = document.body.scrollHeight;
         const offset = heightAfter - heightBefore;
 
         // remove the cursor
-        this.element.remove();
         window.scrollTo(0, offset);
       },
     });
